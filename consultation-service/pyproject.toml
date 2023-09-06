@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "habi-challengue"
+version = "0.1.0"
+description = ""
+authors = ["Christhian Guevara <christhianjesus@gmail.com>"]
+readme = "Proprietary"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+mysql-connector-python = "^8.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.1.0"
+black = "^23.7.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
