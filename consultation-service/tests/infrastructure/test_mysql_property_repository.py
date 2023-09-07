@@ -49,3 +49,13 @@ def test_get_filtered_empty():
     properties = repo.get_all()
 
     assert len(properties) == 0
+
+
+def test_get_filtered_non_empty():
+    p1 = Property(1, "address", "city", "status", 100, "description", "year")
+    p2 = Property(2, "address", "city", "status", 100, "description", "year")
+    mock = MySQLDBMock([p1, p2])
+    repo = MySQLPropertyRepository(mock)
+    properties = repo.get_all()
+
+    assert len(properties) == 2
