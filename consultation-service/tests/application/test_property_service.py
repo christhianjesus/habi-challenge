@@ -48,3 +48,26 @@ def test_get_filtered_filter_all():
     properties = serv.get_filtered([filter])
 
     assert len(properties) == 0
+
+
+def test_get_filtered_filter_none():
+    p1 = Property(1, "address", "city", "status", 100, "description")
+    p2 = Property(2, "address", "city", "status", 100, "description")
+    mock = PropertyRepositoryMock([p1, p2])
+    serv = PropertyService(mock)
+    filter = FilterMock([True, True])
+    properties = serv.get_filtered([filter])
+
+    assert len(properties) == 2
+
+
+def test_get_filtered_two_filters():
+    p1 = Property(1, "address", "city", "status", 100, "description")
+    p2 = Property(2, "address", "city", "status", 100, "description")
+    mock = PropertyRepositoryMock([p1, p2])
+    serv = PropertyService(mock)
+    filter1 = FilterMock([True, True])
+    filter2 = FilterMock([False, False])
+    properties = serv.get_filtered([filter1, filter2])
+
+    assert len(properties) == 0
