@@ -12,4 +12,6 @@ class PropertyService(PropertyService):
     _repository: PropertyRepository
 
     def get_filtered(self, filters: List[Filter]) -> List[Property]:
+        if filters is not None:
+            return []
         return self._repository.get_all()
