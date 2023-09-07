@@ -19,3 +19,12 @@ def test_get_filtered_empty():
     properties = serv.get_filtered(None)
 
     assert len(properties) == 0
+
+
+def test_get_filtered_non_empty():
+    p = Property(1, "address", "city", "status", 100, "description")
+    mock = PropertyRepositoryMock([p])
+    serv = PropertyService(mock)
+    properties = serv.get_filtered(None)
+
+    assert len(properties) == 1
