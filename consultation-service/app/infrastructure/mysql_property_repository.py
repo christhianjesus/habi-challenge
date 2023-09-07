@@ -12,4 +12,11 @@ class MySQLPropertyRepository(PropertyRepository):
     _db: MySQLConnectionAbstract
 
     def get_all(self) -> List[Property]:
-        return []
+        cursor = self._db.cursor()
+        cursor.execute(" ")
+
+        properties = []
+        for row in cursor.fetchall():
+            properties.append(Property(*row))
+
+        return properties
