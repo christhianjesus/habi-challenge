@@ -17,7 +17,11 @@ class MySQLPropertyRepository(PropertyRepository):
             """
                 SELECT p.id, p.address, p.city, s.name, p.price, p.description, p.`year`
                 FROM property p
-                LEFT JOIN (SELECT property_id, status_id, MAX(update_date) FROM status_history GROUP BY property_id) cs ON p.id = cs.property_id
+                LEFT JOIN (
+                    SELECT property_id, status_id, MAX(update_date)
+                    FROM status_history
+                    GROUP BY property_id
+                ) cs ON p.id = cs.property_id
                 LEFT JOIN status s ON cs.status_id = s.id
         """
         )
