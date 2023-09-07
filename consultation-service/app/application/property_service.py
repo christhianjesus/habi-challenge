@@ -12,4 +12,4 @@ class PropertyService(PropertyService):
     _repository: PropertyRepository
 
     def get_filtered(self, filters: List[Filter]) -> List[Property]:
-        return []
+        return self._repository.get_all()
