@@ -1,4 +1,4 @@
-from app.domain import Property
+from app.domain.property import Property
 
 
 def test_property():

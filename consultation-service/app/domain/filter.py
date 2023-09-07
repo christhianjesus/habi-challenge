@@ -1,7 +1,7 @@
-from abc import ABC, abstractmethod
+from abc import ABCMeta, abstractmethod
 
 
-class Filter(ABC):
+class Filter(metaclass=ABCMeta):
     @abstractmethod
     def apply(self) -> bool:
         pass
