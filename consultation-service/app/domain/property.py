@@ -4,12 +4,14 @@ from dataclasses import dataclass
 @dataclass
 class Property:
     """Class for keeping track of an available property."""
+
     _id: int
     _address: str
     _city: str
     _status: str
     _price: int
     _description: str
+    _year: str
 
     @property
     def id(self) -> int:
@@ -34,3 +36,7 @@ class Property:
     @property
     def description(self) -> str:
         return self._description
+
+    @property
+    def year(self) -> str:
+        return self._year

@@ -8,8 +8,9 @@ def test_property():
     status = "pre_venta"
     price = 1000000000
     description = "description"
+    year = "2023"
 
-    p = Property(id, address, city, status, price, description)
+    p = Property(id, address, city, status, price, description, year)
 
     assert p.id == id
     assert p.address == address
