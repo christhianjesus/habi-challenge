@@ -1,6 +1,9 @@
 from typing import List
 from dataclasses import dataclass
-from app.domain import Filter, Property, PropertyRepository, PropertyService
+from app.domain.property import Property
+from app.domain.filter import Filter
+from app.domain.property_repository import PropertyRepository
+from app.domain.property_service import PropertyService
 
 
 @dataclass
@@ -8,5 +11,5 @@ class PropertyService(PropertyService):
     """Class for filter properties."""
     _repository: PropertyRepository
 
-    def getFiltered(self, filters: List[Filter]) -> List[Property]:
+    def get_filtered(self, filters: List[Filter]) -> List[Property]:
         pass
