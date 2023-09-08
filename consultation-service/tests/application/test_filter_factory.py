@@ -1,5 +1,5 @@
-from app.application.filters import YearFilter, CityFilter, StatusFilter
 from app.application.filter_factory import create_filter_factory
+from app.application.filters import CityFilter, StatusFilter, YearFilter
 
 
 def test_create_year_filter():

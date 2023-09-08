@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+
 from app.domain.property import Property
 
 

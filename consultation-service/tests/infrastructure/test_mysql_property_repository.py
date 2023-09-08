@@ -1,9 +1,9 @@
-from typing import Any, Dict, List, Optional, Sequence, Union
 from dataclasses import dataclass
-from app.domain.property import Property
-from app.domain.property_repository import PropertyRepository
+from typing import Any, Dict, List, Optional, Sequence, Union
+
 from mysql.connector.abstracts import MySQLConnectionAbstract, MySQLCursorAbstract
 
+from app.domain.property import Property
 from app.infrastructure.mysql_property_repository import MySQLPropertyRepository
 
 

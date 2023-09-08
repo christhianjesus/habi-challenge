@@ -1,9 +1,10 @@
-from typing import List
 from dataclasses import dataclass
-from app.domain.property import Property
-from app.domain.filter import Filter
-from app.domain.property_repository import PropertyRepository
+from typing import List
+
 from app.application.property_service import PropertyService
+from app.domain.filter import Filter
+from app.domain.property import Property
+from app.domain.property_repository import PropertyRepository
 
 
 @dataclass

@@ -1,8 +1,10 @@
-from typing import List
 from dataclasses import dataclass
+from typing import List
+
+from mysql.connector.abstracts import MySQLConnectionAbstract
+
 from app.domain.property import Property
 from app.domain.property_repository import PropertyRepository
-from mysql.connector.abstracts import MySQLConnectionAbstract
 
 
 @dataclass

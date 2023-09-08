@@ -1,6 +1,6 @@
+from app.application.filters import CityFilter, StatusFilter, YearFilter
 from app.domain.filter import Filter
-from app.domain.filter_kind import YEAR_FILTER, CITY_FILTER, STATUS_FILTER
-from app.application.filters import YearFilter, CityFilter, StatusFilter
+from app.domain.filter_kind import CITY_FILTER, STATUS_FILTER, YEAR_FILTER
 
 
 def create_filter_factory(filter: str, value: str) -> Filter:

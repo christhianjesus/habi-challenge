@@ -1,7 +1,8 @@
 from abc import ABCMeta, abstractmethod
 from typing import List
-from app.domain.property import Property
+
 from app.domain.filter import Filter
+from app.domain.property import Property
 
 
 class PropertyService(metaclass=ABCMeta):

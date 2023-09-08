@@ -1,6 +1,6 @@
-from app.domain.property import Property
+from app.application.filters import CityFilter, StatusFilter, YearFilter
 from app.domain.filter import Filter
-from app.application.filters import YearFilter, CityFilter, StatusFilter
+from app.domain.property import Property
 
 
 def test_year_filter_apply():

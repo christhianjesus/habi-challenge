@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+
 from app.domain.filter import Filter
 from app.domain.property import Property
 
