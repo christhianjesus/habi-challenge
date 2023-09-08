@@ -63,3 +63,45 @@ Additionally, I will leverage Python's standard libraries to manage queries thro
 
 ## Folder structure
 ![a relative link](docs/python_folder_structure.png "Folder structure")
+
+## Like feature
+
+Following the premise that we wanted to record the likes that the user gives,
+the proposed scheme stores a record in the database when clicking on like.
+In a similar way, the user is allowed to remove the like storing a new record with the "enabled" field to "false".
+If it is not necessary to remove the "like",
+we can omit the "enabled" field and add a unique constraint on the "user_id" and "property_id" fields, 
+so the user will not be able to click like several times.
+
+The "like_history" table relates users to properties,
+allowing additional information to be added without modifying the related tables.
+This database table is in its normalized form, which reduces data redundancy and ensures integrity.
+
+### Diagram
+![a relative link](docs/like_feature.svg "Like feature")
+
+### Code
+
+The file is located in the docs folder
+
+```
+CREATE TABLE like_history (
+  id int(11) NOT NULL,
+  user_id int(11) NOT NULL,
+  property_id int(11) NOT NULL,
+  enabled bool NOT NULL DEFAULT TRUE,
+  create_date datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (user_id) REFERENCES user(id),
+  FOREIGN KEY (property_id) REFERENCES property(id)
+);
+```
+
+## Additional improvement
+
+We can add a new field to the "property" table to simplify and speed up queries related to the property status.
+The proposed field is called "last_status_id" and is related to the last recorded status of the property,
+a "trigger" can be used to keep it updated.
+
+### Diagram
+![a relative link](docs/last_status_id.svg "Last status id")
