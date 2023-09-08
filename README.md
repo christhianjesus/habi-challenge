@@ -13,7 +13,7 @@ cd consultation-service
 Create the .env file following the example below
 
 ```
-APP_HOST=localhost
+APP_HOST=0.0.0.0
 APP_PORT=8080
 MYSQL_HOST=
 MYSQL_PORT=
@@ -28,6 +28,14 @@ Make sure you are using Poetry
 poetry self add poetry-dotenv-plugin
 poetry install
 poetry run python3 setup.py
+```
+
+## Install (Using Docker Instead)
+
+Make sure you have created the .env file in the consultation-service folder, then run
+
+```
+docker-compose up
 ```
 
 ## Routes

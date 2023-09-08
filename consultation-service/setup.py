@@ -42,7 +42,7 @@ if __name__ == "__main__":
     property_service = PropertyService(property_repository)
     filter_service = FilterService()
 
-    # Inject Dependency
+    # Inject Dependencies
     RoutesHandler._properties_handler = PropertyHandler(
         property_service, filter_service
     )
