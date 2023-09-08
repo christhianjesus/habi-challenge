@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import List
 
 from app.domain.filter import Filter
 from app.domain.property import Property
@@ -8,27 +9,27 @@ from app.domain.property import Property
 class YearFilter(Filter):
     """Year filter"""
 
-    _year: str
+    _years: List[str]
 
     def apply(self, property: Property) -> bool:
-        return property.year == self._year
+        return property.year in self._years
 
 
 @dataclass
 class CityFilter(Filter):
     """City filter"""
 
-    _city: str
+    _cities: List[str]
 
     def apply(self, property: Property) -> bool:
-        return property.city == self._city
+        return property.city in self._cities
 
 
 @dataclass
 class StatusFilter(Filter):
     """Status filter"""
 
-    _status: str
+    _statuses: List[str]
 
     def apply(self, property: Property) -> bool:
-        return property.status == self._status
+        return property.status in self._statuses

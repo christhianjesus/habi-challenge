@@ -8,7 +8,7 @@ from app.domain.filter_service import FilterService
 class FilterService(FilterService):
     def make_filters(self, params: Dict[str, List[str]]) -> List[Filter]:
         filters = []
-        for key, value in params.items():
-            filters.append(create_filter_factory(key, value[0]))
+        for key, values in params.items():
+            filters.append(create_filter_factory(key, values))
 
         return filters

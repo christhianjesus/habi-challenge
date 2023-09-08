@@ -42,9 +42,10 @@ docker-compose up
 
 ```
 curl --location --request GET 'http://localhost:8080/api/v1/properties?status=pre_venta&year=2023&city=bogota'
+curl --location --request GET 'http://localhost:8080/api/v1/properties?city=bogota3&city=medellin&city=pereira'
 ```
 
-The service provides a single endpoint with three different parameters:  
+The service provides a single endpoint with three different parameters (can be repeated several times):
 * ***status***
 String can be any of these: pre_venta, en_venta, vendido
 

@@ -99,7 +99,7 @@ def test_get_filtered_properties_full():
     p2 = Property(2, "address", "city", "status", 100, "description", "year")
     property_mock = PropertyServiceMock([p1, p2])
     filter_mock = FilterServiceMock(
-        [StatusFilter("pre_venta"), CityFilter("bogota"), YearFilter("2023")]
+        [StatusFilter(["pre_venta"]), CityFilter(["bogota"]), YearFilter(["2023"])]
     )
     json_mock = JsonHandlerMock(
         "http://localhost:8080/api/v1/properties?status=pre_venta&city=bogota&year=2023"
