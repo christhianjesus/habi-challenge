@@ -25,13 +25,15 @@ class MySQLPropertyRepository(PropertyRepository):
                     GROUP BY property_id
                 ) cs ON p.id = cs.property_id
                 LEFT JOIN status s ON cs.status_id = s.id
+                WHERE p.address <> '' AND p.city <> ''
         """
         )
 
         properties = []
         for row in cursor.fetchall():
+            description = row[5] if row[5] is not None else ""
             year = str(row[6]) if row[6] is not None else None
-            new_row = row[:6] + (year,)
+            new_row = row[:5] + (description, year)
             properties.append(Property(*new_row))
 
         return properties
