@@ -4,10 +4,30 @@ This repository implements an API to query the information of the properties ava
 
 ## Install
 
-Make sure you are using Docker
+First of all
 
 ```
+cd consultation-service
+```
 
+Create the .env file following the example below
+
+```
+APP_HOST=localhost
+APP_PORT=8080
+MYSQL_HOST=
+MYSQL_PORT=
+MYSQL_USER=
+MYSQL_PASS=
+MYSQL_DB=
+```
+
+Make sure you are using Poetry
+
+```
+poetry install
+poetry shell
+poetry run python3 setup.py
 ```
 
 ## Routes
@@ -40,3 +60,6 @@ I will adhere to coding standards such as PEP8 to ensure clean and readable code
 Furthermore, I will employ the Builder pattern and the Criteria pattern to define and apply filters flexibly and decoupled, thereby enabling scalability.
 For handling database operations, I will use the Repository pattern.
 Additionally, I will leverage Python's standard libraries to manage queries through a single endpoint that will support multiple filters.
+
+## Folder structure
+![a relative link](docs/python_folder_structure.png "Folder structure")
