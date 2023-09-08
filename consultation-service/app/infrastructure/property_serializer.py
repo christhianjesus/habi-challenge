@@ -15,6 +15,7 @@ class PropertySerializer:
                     "Estado": p.status,
                     "Precio de venta": p.price,
                     "Descripción": p.description,
+                    "Año": p.year,
                 }
             )
 

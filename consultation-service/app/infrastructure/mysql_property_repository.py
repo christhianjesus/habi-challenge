@@ -30,6 +30,8 @@ class MySQLPropertyRepository(PropertyRepository):
 
         properties = []
         for row in cursor.fetchall():
-            properties.append(Property(*row))
+            year = str(row[6]) if row[6] is not None else None
+            new_row = row[:6] + (year,)
+            properties.append(Property(*new_row))
 
         return properties
