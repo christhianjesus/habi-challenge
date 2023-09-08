@@ -46,6 +46,11 @@ String with the following format YYYY
 * ***city***
 String, for example: bogota
 
+## About expected JSON
+
+We are using query parameters to handle the filters, so there is no need for the front-end application to send a json body.
+Usually a GET query does not have a body.
+
 ## Tech Stack
 
 * ***http.server***
