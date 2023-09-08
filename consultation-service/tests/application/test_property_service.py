@@ -5,6 +5,7 @@ from app.application.property_service import PropertyService
 from app.domain.filter import Filter
 from app.domain.property import Property
 from app.domain.property_repository import PropertyRepository
+from app.domain.status_kind import PRESALE_STATUS
 
 
 @dataclass
@@ -32,18 +33,18 @@ def test_get_filtered_empty():
 
 
 def test_get_filtered_non_empty():
-    p1 = Property(1, "address", "city", "status", 100, "description", "year")
-    p2 = Property(2, "address", "city", "status", 100, "description", "year")
+    p1 = Property(1, "address", "city", PRESALE_STATUS, 100, "description", "year")
+    p2 = Property(2, "address", "city", "invalid", 100, "description", "year")
     mock = PropertyRepositoryMock([p1, p2])
     serv = PropertyService(mock)
     properties = serv.get_filtered([])
 
-    assert len(properties) == 2
+    assert len(properties) == 1
 
 
 def test_get_filtered_filter_all():
-    p1 = Property(1, "address", "city", "status", 100, "description", "year")
-    p2 = Property(2, "address", "city", "status", 100, "description", "year")
+    p1 = Property(1, "address", "city", PRESALE_STATUS, 100, "description", "year")
+    p2 = Property(2, "address", "city", PRESALE_STATUS, 100, "description", "year")
     mock = PropertyRepositoryMock([p1, p2])
     serv = PropertyService(mock)
     filter = FilterMock([False, False])
@@ -53,8 +54,8 @@ def test_get_filtered_filter_all():
 
 
 def test_get_filtered_filter_none():
-    p1 = Property(1, "address", "city", "status", 100, "description", "year")
-    p2 = Property(2, "address", "city", "status", 100, "description", "year")
+    p1 = Property(1, "address", "city", PRESALE_STATUS, 100, "description", "year")
+    p2 = Property(2, "address", "city", PRESALE_STATUS, 100, "description", "year")
     mock = PropertyRepositoryMock([p1, p2])
     serv = PropertyService(mock)
     filter = FilterMock([True, True])
@@ -64,8 +65,8 @@ def test_get_filtered_filter_none():
 
 
 def test_get_filtered_two_filters():
-    p1 = Property(1, "address", "city", "status", 100, "description", "year")
-    p2 = Property(2, "address", "city", "status", 100, "description", "year")
+    p1 = Property(1, "address", "city", PRESALE_STATUS, 100, "description", "year")
+    p2 = Property(2, "address", "city", PRESALE_STATUS, 100, "description", "year")
     mock = PropertyRepositoryMock([p1, p2])
     serv = PropertyService(mock)
     filter1 = FilterMock([True, True])
@@ -76,9 +77,9 @@ def test_get_filtered_two_filters():
 
 
 def test_get_filtered_two_filters_non_empty():
-    p1 = Property(1, "address", "city", "status", 100, "description", "year")
-    p2 = Property(2, "address", "city", "status", 100, "description", "year")
-    p3 = Property(3, "address", "city", "status", 100, "description", "year")
+    p1 = Property(1, "address", "city", PRESALE_STATUS, 100, "description", "year")
+    p2 = Property(2, "address", "city", PRESALE_STATUS, 100, "description", "year")
+    p3 = Property(3, "address", "city", PRESALE_STATUS, 100, "description", "year")
     mock = PropertyRepositoryMock([p1, p2, p3])
     serv = PropertyService(mock)
     filter1 = FilterMock([True, False, True])
