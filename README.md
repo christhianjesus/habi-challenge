@@ -25,8 +25,8 @@ MYSQL_DB=
 Make sure you are using Poetry
 
 ```
+poetry self add poetry-dotenv-plugin
 poetry install
-poetry shell
 poetry run python3 setup.py
 ```
 
